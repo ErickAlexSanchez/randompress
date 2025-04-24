@@ -1,83 +1,72 @@
-RandomPress
+# RandomPress
+## Autor: Erick Alexander Sánchez
+## Vista del proyecto en vivo:
+http://random-press.appe4.com/
 
 Mini-blog de noticias en PHP y Bootstrap con:
+- **10 posts por página**
+- **Paginación** limitada a 4 páginas
+- **Modo claro/oscuro** con persistencia en localStorage
+- **Rate limiting**: máximo 30 peticiones/minuto por IP
+- **Caché** de respuestas (5 minutos) para NewsAPI y RandomUser
+- **Fallback** a endpoint everything de NewsAPI si no hay resultados
+- **Validación** de errores y mensajes claros de NewsAPI
+- **Autores** generados de forma aleatoria con RandomUser.me
 
-10 posts por página
 
-Paginación limitada a 4 páginas
-
-Modo claro/oscuro con persistencia en localStorage
-
-Rate limiting: máximo 30 peticiones/minuto por IP
-
-Caché de respuestas (5 minutos) para NewsAPI y RandomUser
-
-Fallback a endpoint everything de NewsAPI si no hay resultados
-
-Validación de errores y mensajes claros de NewsAPI
-
-Autores generados de forma aleatoria con RandomUser.me
-
-📁 Estructura de archivos
+## Estructura de archivos
 
 randompress/
 ├── .env                 # Variables de entorno (NEWSAPI_KEY)
 ├── .env.example         # Ejemplo de .env
 ├── composer.json        # Dependencias PHP
-├── composer.lock        # Versionado de dependencias (no obligatorio)
+├── composer.lock        # Versionado de dependencias
 ├── bootstrap.php        # Carga de Composer + dotenv
 ├── index.php            # Lógica principal y renderizado
 ├── cache/               # Caché de JSON (creado por la app)
-├── vendor/              # Librerías instaladas por Composer
+├── vendor/              # Librerías de Composer
 ├── README.md            # Documentación del proyecto
 └── .gitignore           # Archivos ignorados por Git
 
-🚀 Requisitos
+## Requisitos
 
-PHP ≥ 7.4 con extensiones:
+- PHP ≥ 7.4 con extensiones: curl, json, zip
+- Composer instalado
+- Clave válida de News API
 
-curl
+## Instalación
 
-json
+1. Clona el repositorio:
 
-zip (para Composer)
+2. Variables de entorno:
+   cp .env.example .env
+   # Edita .env y añade tu clave: NEWSAPI_KEY=tu_clave_newsapi
 
-Composer instalado
+3. Instala dependencias:
+   composer install
 
-Clave válida de News API (regístrate en https://newsapi.org/)
+4. Crea carpeta cache (opcional):
+   mkdir cache
+   chmod 775 cache
 
-Variables de entorno:
+5. Inicia servidor:
+   php -S 0.0.0.0:8000
+   # Visitar http://localhost:8000/index.php
 
-cp .env.example .env
-# Edita .env y añade tu clave:
-# NEWSAPI_KEY=tu_clave_newsapi
+## Uso
 
-Instala dependencias PHP:
+- Navegar páginas (4 páginas)
+- Cambiar modo claro/oscuro con 🌓 (localStorage)
+- 429 tras 30 peticiones/60s
+- Caché 5 minutos NewsAPI/RandomUser
 
-composer install
-
-Crea carpeta de caché y da permisos:
-
-mkdir cache
-chmod 775 cache
-
-⚙️ Uso
-
-Navega entre páginas con la barra de paginación (4 páginas).
-
-Cambia entre modo claro y modo oscuro con el botón 🌓 (persistencia en localStorage).
-
-Si superas 30 peticiones en 60 segundos verás un error 429 Too Many Requests.
-
-El sistema cachea respuestas de NewsAPI y RandomUser durante 5 minutos.
-
-📝 .gitignore
+## .gitignore
 
 /vendor/
-/cache/
-.env
+*/cache/
+/.env
+composer.phar
 
-📄 Licencia
+## Licencia
 
-MIT — ¡Siéntete libre de usar y modificar este proyecto!
-
+MIT
