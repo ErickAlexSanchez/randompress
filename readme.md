@@ -46,13 +46,6 @@ Composer instalado
 
 Clave válida de News API (regístrate en https://newsapi.org/)
 
-🔧 Instalación
-
-Clona el repositorio:
-
-git clone https://tu-repo/randompress.git
-cd randompress
-
 Variables de entorno:
 
 cp .env.example .env
@@ -67,12 +60,6 @@ Crea carpeta de caché y da permisos:
 
 mkdir cache
 chmod 775 cache
-
-Inicia servidor de desarrollo:
-
-php -S 0.0.0.0:8000
-
-Abre en tu navegador: http://localhost:8000/index.php
 
 ⚙️ Uso
 
