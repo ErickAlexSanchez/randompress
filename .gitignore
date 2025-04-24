@@ -1,0 +1,18 @@
+# Dependencias de Composer
+/vendor/
+
+# Caché de la aplicación
+/cache/
+
+# Variables de entorno
+.env
+
+# Ejecutable local de Composer
+composer.phar
+
+# Ignorar archivos de sistema de Windows
+Thumbs.db
+ehthumbs.db
+
+# Ignorar archivos de sistema de macOS
+.DS_Store
